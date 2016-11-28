@@ -31,5 +31,7 @@ public interface UsuarioInterfaz {
     public List<Usuario> mostrarUsuarios();
 
     
+    public Usuario persistirUsuario(String nombreUsuario, String contraseña);
+    
 
 }

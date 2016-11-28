@@ -5,13 +5,14 @@
  */
 package mx.itson.farmacia.Implementacion;
 
-import com.itson.farmacia.HibernateUtil;
+import mx.itson.farmacia.Entidades.HibernateUtil;
 import mx.itson.farmacia.Entidades.DerechoHabiente;
 import mx.itson.farmacia.Entidades.Doctor;
 import mx.itson.farmacia.Entidades.Laboratorio;
 import mx.itson.farmacia.Entidades.Persona;
 import mx.itson.farmacia.Entidades.Usuario;
 import mx.itson.farmacia.Interfaz.DerechoHabienteInterfaz;
+import mx.itson.farmacia.Interfaz.ValidacionInterfaz;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -26,7 +27,7 @@ public class TestConsola {
      */
     public static void main(String[] args) {
       
-        Session sessionUser = HibernateUtil.getSessionFactory().openSession();
+        /*Session sessionUser = HibernateUtil.getSessionFactory().openSession();
         Transaction tx = null;
         tx = sessionUser.beginTransaction();
         Doctor dr1 = sessionUser.load(Doctor.class, 3);
@@ -34,7 +35,8 @@ public class TestConsola {
             System.out.println(dh.getNombre());
         }
         tx.commit();
-        sessionUser.persist(dr1);
+        sessionUser.persist(dr1);*/
+        
         
         Usuario user = new Usuario();
         Doctor dr = new Doctor();
@@ -42,6 +44,7 @@ public class TestConsola {
         IUsuario us = new IUsuario();
         IDoctor idr = new IDoctor();
         DerechoHabienteInterfaz dhi = new IDerechoHabiente();
+        ValidacionInterfaz vai = new IValidacion();
         
         /*
         Crea objeto de Usuario
@@ -86,6 +89,10 @@ public class TestConsola {
         idr.agregarDerechoHabienteLista(dh, dr1);
         
         */
+        
+        boolean stat = vai.validarCredenciales("bloparram", "12");
+        System.out.println(stat);
+        
     }
     
 }

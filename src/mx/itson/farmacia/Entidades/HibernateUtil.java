@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.itson.farmacia;
+package mx.itson.farmacia.Entidades;
 
 import org.hibernate.HibernateException;
 import org.hibernate.SessionFactory;

@@ -5,7 +5,7 @@
  */
 package mx.itson.farmacia.Implementacion;
 
-import com.itson.farmacia.HibernateUtil;
+import mx.itson.farmacia.Entidades.HibernateUtil;
 import java.util.List;
 import javax.swing.JOptionPane;
 import mx.itson.farmacia.Entidades.Persona;
@@ -59,5 +59,28 @@ public class IUsuario implements UsuarioInterfaz {
         return lista;
     }
     
+    public Usuario persistirUsuario(String nombreUsuario, String contraseña){
+        Session sessionPersist = HibernateUtil.getSessionFactory().openSession();
+        Transaction tx = null;
+        Usuario us = null;
+        try{
+            tx = sessionPersist.beginTransaction();
+            String hql = "FROM Usuario WHERE usuarioLogin = :usuarioLogin AND contraseña = :contraseña";
+            Query query = sessionPersist.createQuery(hql);
+            query.setParameter("usuarioLogin", nombreUsuario);
+            query.setParameter("contraseña", contraseña);
+            List<Usuario> lista = query.list();
+            for(Usuario user : lista){
+                us = sessionPersist.get(Usuario.class, user.getId());
+            }
+            
+        }catch(Exception ex){
+            JOptionPane.showMessageDialog(null, "Ah ocurrido un error en el login.");
+        }finally{
+            sessionPersist.persist(us);
+        }
+        
+        return us;
+    }
     
 }

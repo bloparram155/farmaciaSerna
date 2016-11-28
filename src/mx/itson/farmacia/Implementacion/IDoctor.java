@@ -5,7 +5,7 @@
  */
 package mx.itson.farmacia.Implementacion;
 
-import com.itson.farmacia.HibernateUtil;
+import mx.itson.farmacia.Entidades.HibernateUtil;
 import java.util.List;
 import javax.swing.JOptionPane;
 import mx.itson.farmacia.Entidades.DerechoHabiente;
