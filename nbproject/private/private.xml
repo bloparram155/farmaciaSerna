@@ -3,12 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/Users/blabla/Documents/NetBeansProjects/nightmarePrevails/src/mx/itson/farmacia/Implementacion/IDerechoHabiente.java</file>
+            <file>file:/C:/Users/blabla/Documents/NetBeansProjects/nightmarePrevails/src/mx/itson/farmacia/Implementacion/ISalida.java</file>
             <file>file:/C:/Users/blabla/Documents/NetBeansProjects/nightmarePrevails/src/mx/itson/farmacia/Implementacion/ILaboratorio.java</file>
+            <file>file:/C:/Users/blabla/Documents/NetBeansProjects/nightmarePrevails/src/mx/itson/farmacia/Presentacion/ProductoAgregar.java</file>
+            <file>file:/C:/Users/blabla/Documents/NetBeansProjects/nightmarePrevails/src/mx/itson/farmacia/Presentacion/UsuarioAgregar.java</file>
             <file>file:/C:/Users/blabla/Documents/NetBeansProjects/nightmarePrevails/src/mx/itson/farmacia/Implementacion/IDoctor.java</file>
-            <file>file:/C:/Users/blabla/Documents/NetBeansProjects/nightmarePrevails/src/mx/itson/farmacia/Presentacion/VerDoctor.java</file>
-            <file>file:/C:/Users/blabla/Documents/NetBeansProjects/nightmarePrevails/src/mx/itson/farmacia/Presentacion/VerLaboratorio.java</file>
-            <file>file:/C:/Users/blabla/Documents/NetBeansProjects/nightmarePrevails/src/mx/itson/farmacia/Interfaz/DoctorInterfaz.java</file>
+            <file>file:/C:/Users/blabla/Documents/NetBeansProjects/nightmarePrevails/src/mx/itson/farmacia/Implementacion/IValidacion.java</file>
             <file>file:/C:/Users/blabla/Documents/NetBeansProjects/nightmarePrevails/src/mx/itson/farmacia/Presentacion/Menu.java</file>
+            <file>file:/C:/Users/blabla/Documents/NetBeansProjects/nightmarePrevails/src/mx/itson/farmacia/Implementacion/IUsuario.java</file>
+            <file>file:/C:/Users/blabla/Documents/NetBeansProjects/nightmarePrevails/src/mx/itson/farmacia/Implementacion/IProducto.java</file>
         </group>
     </open-files>
 </project-private>

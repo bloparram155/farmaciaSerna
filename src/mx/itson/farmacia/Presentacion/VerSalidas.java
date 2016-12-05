@@ -5,6 +5,7 @@
  */
 package mx.itson.farmacia.Presentacion;
 
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import mx.itson.farmacia.Entidades.DerechoHabiente;
 import mx.itson.farmacia.Entidades.Laboratorio;
@@ -39,11 +40,15 @@ public class VerSalidas extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblMostrarSalidas = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        txtBusquedaSalida = new javax.swing.JTextField();
+        btnBusquedaDoctor = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblProductosSalida = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        btnBusquedaDh = new javax.swing.JButton();
+        btnBusquedaUsuario = new javax.swing.JButton();
+        btnMostrarTodo = new javax.swing.JButton();
 
         setClosable(true);
         setTitle("Salidas");
@@ -83,7 +88,12 @@ public class VerSalidas extends javax.swing.JInternalFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         jLabel1.setText("Registro de Salidas");
 
-        jButton1.setText("Buscar");
+        btnBusquedaDoctor.setText("Busqueda por doctor");
+        btnBusquedaDoctor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBusquedaDoctorActionPerformed(evt);
+            }
+        });
 
         tblProductosSalida.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -106,34 +116,72 @@ public class VerSalidas extends javax.swing.JInternalFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         jLabel2.setText("Listado de productos por salida");
 
+        jLabel3.setText("Nota: La busqueda debe de ser por id.");
+
+        btnBusquedaDh.setText("Busqueda por derecho habiente");
+        btnBusquedaDh.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBusquedaDhActionPerformed(evt);
+            }
+        });
+
+        btnBusquedaUsuario.setText("Busqueda por usuario");
+        btnBusquedaUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBusquedaUsuarioActionPerformed(evt);
+            }
+        });
+
+        btnMostrarTodo.setText("Mostrar registros");
+        btnMostrarTodo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMostrarTodoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jLabel1)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(btnBusquedaDoctor)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(btnBusquedaDh)
+                            .addGap(18, 18, 18)
+                            .addComponent(btnBusquedaUsuario)
+                            .addGap(18, 18, 18)
+                            .addComponent(btnMostrarTodo))
+                        .addComponent(jLabel2)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 820, Short.MAX_VALUE)
+                        .addComponent(jScrollPane2))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1)
+                        .addComponent(txtBusquedaSalida, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel2)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 820, Short.MAX_VALUE)
-                    .addComponent(jScrollPane2))
+                        .addComponent(jLabel3)))
                 .addContainerGap(115, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jLabel1)
-                .addGap(28, 28, 28)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtBusquedaSalida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
+                .addGap(2, 2, 2)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnBusquedaDoctor)
+                    .addComponent(btnBusquedaDh)
+                    .addComponent(btnBusquedaUsuario)
+                    .addComponent(btnMostrarTodo))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                 .addComponent(jLabel2)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -229,7 +277,80 @@ public class VerSalidas extends javax.swing.JInternalFrame {
         return dtm;
     }
     
+     private void llenarTablaBusquedaDoctor(int id){
+         
+         DefaultTableModel dtm =  new DefaultTableModel();
+         tblMostrarSalidas.setModel(dtm);
+        
+        dtm.addColumn("Id");
+        dtm.addColumn("Doctor");
+        dtm.addColumn("Derecho Habiente");
+        dtm.addColumn("Usuario");
+        
+       
+        
+        for(Salida sal: sii.buscarSalidaDoctor(id)){
+            
+            Object[] fila = new Object[5];
+            fila[0] = sal.getId();
+            fila[1] = sal.getDoctor().getNombre() + " " +sal.getDoctor().getApellido();
+            fila[2] = sal.getDerechoHabiente().getNombre();
+            fila[3] = sal.getUsuario().getNombre();
     
+            dtm.addRow(fila);
+         
+        }
+    }
+    
+     private void llenarTablaBusquedaHabiente(int id){
+         
+         DefaultTableModel dtm =  new DefaultTableModel();
+         tblMostrarSalidas.setModel(dtm);
+        
+        dtm.addColumn("Id");
+        dtm.addColumn("Doctor");
+        dtm.addColumn("Derecho Habiente");
+        dtm.addColumn("Usuario");
+        
+       
+        
+        for(Salida sal: sii.buscarSalidaHabiente(id)){
+            
+            Object[] fila = new Object[5];
+            fila[0] = sal.getId();
+            fila[1] = sal.getDoctor().getNombre() + " " +sal.getDoctor().getApellido();
+            fila[2] = sal.getDerechoHabiente().getNombre();
+            fila[3] = sal.getUsuario().getNombre();
+    
+            dtm.addRow(fila);
+         
+        }
+    }
+     
+     private void llenarTablaBusquedaUsuario(int id){
+         
+         DefaultTableModel dtm =  new DefaultTableModel();
+         tblMostrarSalidas.setModel(dtm);
+        
+        dtm.addColumn("Id");
+        dtm.addColumn("Doctor");
+        dtm.addColumn("Derecho Habiente");
+        dtm.addColumn("Usuario");
+        
+       
+        
+        for(Salida sal: sii.buscarSalidaUsuario(id)){
+            
+            Object[] fila = new Object[5];
+            fila[0] = sal.getId();
+            fila[1] = sal.getDoctor().getNombre() + " " +sal.getDoctor().getApellido();
+            fila[2] = sal.getDerechoHabiente().getNombre();
+            fila[3] = sal.getUsuario().getNombre();
+    
+            dtm.addRow(fila);
+         
+        }
+    }
     private void tblMostrarSalidasAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_tblMostrarSalidasAncestorAdded
        llenarTabla();
     }//GEN-LAST:event_tblMostrarSalidasAncestorAdded
@@ -237,19 +358,58 @@ public class VerSalidas extends javax.swing.JInternalFrame {
     private void tblMostrarSalidasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblMostrarSalidasMouseClicked
         int index = tblMostrarSalidas.getSelectedRow();
         int id = Integer.parseInt(llenarTablaSalida().getValueAt(index, 0).toString());
-        llenarTablaProductoSalida(sii.obtenerLaboratorio(id));
+        llenarTablaProductoSalida(sii.obtenerSalida(id));
         
     }//GEN-LAST:event_tblMostrarSalidasMouseClicked
 
+    private void btnBusquedaDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBusquedaDoctorActionPerformed
+        // TODO add your handling code here:
+        
+        int busqueda = Integer.parseInt(txtBusquedaSalida.getText().trim());
+        llenarTablaBusquedaDoctor(busqueda);
+        
+        
+        
+    }//GEN-LAST:event_btnBusquedaDoctorActionPerformed
+
+    private void btnBusquedaDhActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBusquedaDhActionPerformed
+        // TODO add your handling code here:
+        try{
+              int busqueda = Integer.parseInt(txtBusquedaSalida.getText().trim());
+              llenarTablaBusquedaHabiente(busqueda);
+        }catch(Exception ex){
+            JOptionPane.showMessageDialog(null, "Ocurrio un problema al obtener datos.");
+        }
+    }//GEN-LAST:event_btnBusquedaDhActionPerformed
+
+    private void btnBusquedaUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBusquedaUsuarioActionPerformed
+        // TODO add your handling code here:
+        try{
+              int busqueda = Integer.parseInt(txtBusquedaSalida.getText().trim());
+              llenarTablaBusquedaUsuario(busqueda);
+        }catch(Exception ex){
+            JOptionPane.showMessageDialog(null, "Ocurrio un problema al obtener datos.");
+        }
+    }//GEN-LAST:event_btnBusquedaUsuarioActionPerformed
+
+    private void btnMostrarTodoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarTodoActionPerformed
+        // TODO add your handling code here:
+        llenarTabla();
+    }//GEN-LAST:event_btnMostrarTodoActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnBusquedaDh;
+    private javax.swing.JButton btnBusquedaDoctor;
+    private javax.swing.JButton btnBusquedaUsuario;
+    private javax.swing.JButton btnMostrarTodo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTable tblMostrarSalidas;
     private javax.swing.JTable tblProductosSalida;
+    private javax.swing.JTextField txtBusquedaSalida;
     // End of variables declaration//GEN-END:variables
 }

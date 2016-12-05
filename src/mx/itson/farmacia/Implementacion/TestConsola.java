@@ -31,15 +31,13 @@ public class TestConsola {
      */
     public static void main(String[] args) {
       
-        Session sessionUser = HibernateUtil.getSessionFactory().openSession();
+        /*Session sessionUser = HibernateUtil.getSessionFactory().openSession();
         Transaction tx = null;
         tx = sessionUser.beginTransaction();
-        Salida lab = sessionUser.load(Salida.class, 18);
-        for(Producto pro : lab.getLista()){
-            System.out.println(pro.getNombre());
-        }
+        Usuario user = new Usuario("Pablo", "Parra", "Sahuaripa", "Guaymas", "Telefono", 24, "blopa", "123");
+        sessionUser.save(user);
         tx.commit();
-        sessionUser.close();
+        sessionUser.close();*/
         
         /*
         Usuario user = new Usuario();

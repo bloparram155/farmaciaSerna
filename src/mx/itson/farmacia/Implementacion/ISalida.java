@@ -8,7 +8,9 @@ package mx.itson.farmacia.Implementacion;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
+import mx.itson.farmacia.Entidades.Doctor;
 import mx.itson.farmacia.Entidades.HibernateUtil;
+import mx.itson.farmacia.Entidades.Producto;
 import mx.itson.farmacia.Entidades.Salida;
 import mx.itson.farmacia.Interfaz.SalidaInterfaz;
 import org.hibernate.Query;
@@ -60,14 +62,22 @@ public class ISalida implements SalidaInterfaz{
     }
     
     @Override
-    public Salida obtenerLaboratorio(int id){
+    public Salida obtenerSalida(int id){
         
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction tx = null;
+        List<Salida> lista = new ArrayList();
         Salida lab=null;
         try{
             tx = session.beginTransaction();
-            lab = session.load(Salida.class, id);
+            String hql ="FROM Salida WHERE id = :id";
+            Query query = session.createQuery(hql);
+            query.setParameter("id", id);
+            lista = query.list();
+            for(Salida s : lista){
+                lab = new Salida(s.getDoctor(), s.getDerechoHabiente(), s.getUsuario(), s.getTotal());
+            }
+            tx.commit();
           
         }catch(Exception ex){
             JOptionPane.showMessageDialog(null, "Ocurrio un error al obtener Salida");
@@ -75,5 +85,97 @@ public class ISalida implements SalidaInterfaz{
             session.persist(lab);
         }
         return lab;
+    }
+    
+    /**
+     * Método para filtrar busqueda de salidas por Doctor
+     * @param id
+     * @return 
+     */
+    @Override
+    public List<Salida> buscarSalidaDoctor(int id){
+        
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Transaction tx = null;
+        List<Salida> lista = new ArrayList();
+        try{
+           tx = session.beginTransaction();
+           String hql = "FROM Salida WHERE idDoctor LIKE :idDoctor";
+           Query query = session.createQuery(hql);
+           query.setParameter("idDoctor", id);
+           lista = query.list();
+           
+            
+        }catch(Exception ex){
+            JOptionPane.showMessageDialog(null, "Producto inexistente");
+        }finally{
+            session.close();
+        }
+        return lista;
+    }
+    
+    @Override
+    public List<Salida> buscarSalidaHabiente(int id){
+        
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Transaction tx = null;
+        List<Salida> lista = new ArrayList();
+        try{
+           tx = session.beginTransaction();
+           String hql = "FROM Salida WHERE idDerechoHabiente LIKE :idDerechoHabiente";
+           Query query = session.createQuery(hql);
+           query.setParameter("idDerechoHabiente", id);
+           lista = query.list();
+           
+            
+        }catch(Exception ex){
+            JOptionPane.showMessageDialog(null, "Producto inexistente");
+        }finally{
+            session.close();
+        }
+        return lista;
+    }
+    
+     @Override
+    public List<Salida> buscarSalidaUsuario(int id){
+        
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Transaction tx = null;
+        List<Salida> lista = new ArrayList();
+        try{
+           tx = session.beginTransaction();
+           String hql = "FROM Salida WHERE idUsuario LIKE :idUsuario";
+           Query query = session.createQuery(hql);
+           query.setParameter("idUsuario", id);
+           lista = query.list();
+           
+            
+        }catch(Exception ex){
+            JOptionPane.showMessageDialog(null, "Producto inexistente");
+        }finally{
+            session.close();
+        }
+        return lista;
+    }
+     @Override
+    public void agregarProductoSalida(Salida sa,List<Producto> lista){
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Transaction tx = null;
+        try{
+            tx= session.beginTransaction();
+            Salida dr1 = session.get(Salida.class, sa.getId());
+            for(Producto p : lista){
+                dr1.getLista().add(p);
+            }
+            
+            tx.commit();
+            
+        }catch(Exception ex){
+            JOptionPane.showMessageDialog(null, "Ah ocurrido un error al agregar"
+                    + "producto a la salida.");
+        }finally{
+            session.close();
+        }
+        
     }
 }

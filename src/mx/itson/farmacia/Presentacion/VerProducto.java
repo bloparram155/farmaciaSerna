@@ -531,12 +531,27 @@ public class VerProducto extends javax.swing.JInternalFrame {
         int cantidadComprar = Integer.parseInt(txtCantidadComprar.getText().trim());
         int cantidadStock = producto.getCantidad();
         producto.setCantidad(cantidadStock-cantidadComprar);
-        listaTemporal.add(producto);
+        
+        //Objeto Temporal para agregar a la lista
+        Producto temporal = new Producto();
+        temporal.setId(producto.getId());
+        temporal.setNombre(producto.getNombre());
+        temporal.setDescripcion(producto.getDescripcion());
+        temporal.setCantidad(cantidadComprar);
+        temporal.setPrecioUnitario(producto.getPrecioUnitario());
+        temporal.setLaboratorio(producto.getLaboratorio());
+        listaTemporal.add(temporal);
+        temporal = null;
+        
+        //Lógica de la venta
         double precioCompra = cantidadComprar * producto.getPrecioUnitario();
         totalCompra = totalCompra+precioCompra;
         txtTotalCompra.setText(String.valueOf(totalCompra));
         llenarTablaProductosTemporal();
         producto = null;
+        
+        
+        //Limpiar cajas de texto
         txtArticuloNombre.setText(null);
         txtPrecioUnitario.setText(null);
         txtCantidadComprar.setText(null);
@@ -589,11 +604,11 @@ public class VerProducto extends javax.swing.JInternalFrame {
         DerechoHabiente derechoHabiente= (DerechoHabiente) cbxDerechoHabiente.getSelectedItem();
         Usuario usuario = (Usuario) cbxUsuario.getSelectedItem();
         List<Producto> lista = listaTemporal;
-        /*for(Producto p : listaTemporal){
-            pi.actualizarProducto(p);
-        }*/
-        Salida salida = new Salida(lista, doctor, derechoHabiente, usuario, total);
+       
+        Salida salida = new Salida(doctor, derechoHabiente, usuario, total);
+       
         sii.agregarSalida(salida);
+        sii.agregarProductoSalida(salida, lista);
         listaTemporal.clear();
         
         

@@ -43,7 +43,7 @@ public class Salida {
         
     }
     
-    public Salida(List<Producto> lista, Doctor doctor, DerechoHabiente derechoHabiente,
+    public Salida(Doctor doctor, DerechoHabiente derechoHabiente,
             Usuario usuario, double total){
         this.lista = lista;
         this.doctor = doctor;

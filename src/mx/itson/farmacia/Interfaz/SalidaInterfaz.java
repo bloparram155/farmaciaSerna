@@ -6,6 +6,7 @@
 package mx.itson.farmacia.Interfaz;
 
 import java.util.List;
+import mx.itson.farmacia.Entidades.Producto;
 import mx.itson.farmacia.Entidades.Salida;
 
 /**
@@ -19,6 +20,14 @@ public interface SalidaInterfaz {
     
     public List<Salida> mostrarSalidas();
     
-    public Salida obtenerLaboratorio(int id);
+    public Salida obtenerSalida(int id);
+    
+    public List<Salida> buscarSalidaDoctor(int id);
+    
+    public void agregarProductoSalida(Salida sa,List<Producto> lista);
+    
+    public List<Salida> buscarSalidaHabiente(int id);
+    
+    public List<Salida> buscarSalidaUsuario(int id);
     
 }
