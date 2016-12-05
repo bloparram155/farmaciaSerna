@@ -44,6 +44,38 @@ public class Doctor extends Persona{
     private List<DerechoHabiente> lista = new ArrayList<>();
 
    
+    /**
+     * Método para crear objeto de clase sin parámetros.
+     */
+    public Doctor(){
+        
+    }
+    
+   /**
+    * Método para crear objeto de clase con parámetros.
+    * @param nombre
+    * @param apellido
+    * @param domicilio
+    * @param ciudad
+    * @param telefono
+    * @param edad
+    * @param especialidad
+    * @param horario 
+    */
+   public Doctor (String nombre, String apellido, String domicilio,
+            String ciudad, String telefono, int edad, String especialidad, String horario){
+        super();
+        
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.domicilio = domicilio;
+        this.ciudad = ciudad;
+        this.telefono = telefono;
+        this.edad = edad;
+        this.especialidad = especialidad;
+        this.horario = horario;
+        
+    }
    
     /**
      * @return the especialidad
@@ -94,6 +126,10 @@ public class Doctor extends Persona{
     }
 
     
+    @Override
+    public String toString(){
+        return nombre;
+    }
     
     
     

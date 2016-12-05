@@ -10,8 +10,11 @@ import mx.itson.farmacia.Entidades.DerechoHabiente;
 import mx.itson.farmacia.Entidades.Doctor;
 import mx.itson.farmacia.Entidades.Laboratorio;
 import mx.itson.farmacia.Entidades.Persona;
+import mx.itson.farmacia.Entidades.Producto;
 import mx.itson.farmacia.Entidades.Usuario;
 import mx.itson.farmacia.Interfaz.DerechoHabienteInterfaz;
+import mx.itson.farmacia.Interfaz.DoctorInterfaz;
+import mx.itson.farmacia.Interfaz.UsuarioInterfaz;
 import mx.itson.farmacia.Interfaz.ValidacionInterfaz;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -27,25 +30,27 @@ public class TestConsola {
      */
     public static void main(String[] args) {
       
-        /*Session sessionUser = HibernateUtil.getSessionFactory().openSession();
+        Session sessionUser = HibernateUtil.getSessionFactory().openSession();
         Transaction tx = null;
         tx = sessionUser.beginTransaction();
-        Doctor dr1 = sessionUser.load(Doctor.class, 3);
-        for(DerechoHabiente dh: dr1.getLista()){
-            System.out.println(dh.getNombre());
+        Laboratorio lab = sessionUser.load(Laboratorio.class, 13);
+        for(Producto pro : lab.getLista()){
+            System.out.println(pro.getNombre());
         }
         tx.commit();
-        sessionUser.persist(dr1);*/
+        sessionUser.close();
         
-        
+        /*
         Usuario user = new Usuario();
         Doctor dr = new Doctor();
         DerechoHabiente dh = new DerechoHabiente();
         IUsuario us = new IUsuario();
-        IDoctor idr = new IDoctor();
+        DoctorInterfaz idr = new IDoctor();
         DerechoHabienteInterfaz dhi = new IDerechoHabiente();
-        ValidacionInterfaz vai = new IValidacion();
-        
+        UsuarioInterfaz usi = new IUsuario();
+        //ValidacionInterfaz vai = new IValidacion();
+        */
+       
         /*
         Crea objeto de Usuario
         user.setNombre("Miguel");
@@ -90,9 +95,9 @@ public class TestConsola {
         
         */
         
-        boolean stat = vai.validarCredenciales("bloparram", "12");
+       /* boolean stat = vai.validarCredenciales("bloparram", "12");
         System.out.println(stat);
-        
+        */
     }
     
 }

@@ -32,6 +32,19 @@ public class Laboratorio {
     private String ciudad;
     private List<Producto> lista = new ArrayList<>();
 
+    
+    /**
+     * Método para crear objetos de clase sin parámetros.
+     */
+    public Laboratorio(){
+        
+    }
+    
+    public Laboratorio(String nombre, String domicilio, String ciudad){
+        this.nombre = nombre;
+        this.domicilio = domicilio;
+        this.ciudad = ciudad;
+    }
     /**
      * @return the id
      */
@@ -110,5 +123,9 @@ public class Laboratorio {
         this.lista = lista;
     }
     
+    @Override
+    public String toString(){
+        return nombre;
+    }
     
 }

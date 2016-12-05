@@ -42,7 +42,43 @@ public class DerechoHabiente extends Persona {
     private String fechaIngreso;
 
     
+    /**
+     * Método para crear objeto de la clase sin parámetros.
+     */
+    public DerechoHabiente(){
+        
+    }
     
+    /**
+     * Método para crear objeto de la clase con parámetros.
+     * @param id
+     * @param nombre
+     * @param apellido
+     * @param domicilio
+     * @param ciudad
+     * @param telefono
+     * @param edad
+     * @param afiliacion
+     * @param dependencia
+     * @param fechaIngreso 
+     */
+    public DerechoHabiente (String nombre, String apellido, String domicilio,
+            String ciudad, String telefono, int edad, int afiliacion,Doctor doctor,String dependencia,
+            String fechaIngreso){
+        super();
+        
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.domicilio = domicilio;
+        this.ciudad = ciudad;
+        this.telefono = telefono;
+        this.edad = edad;
+        this.afiliacion = afiliacion;
+        this.doctor = doctor;
+        this.dependencia = dependencia;
+        this.fechaIngreso = fechaIngreso;
+        
+    }
     
     /**
      * @return the afiliacion

@@ -33,5 +33,7 @@ public interface UsuarioInterfaz {
     
     public Usuario persistirUsuario(String nombreUsuario, String contraseña);
     
+    public List<Usuario> buscarUsuario(String nombre);
+    
 
 }

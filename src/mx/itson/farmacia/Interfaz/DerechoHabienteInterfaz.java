@@ -6,8 +6,8 @@
 package mx.itson.farmacia.Interfaz;
 
 import java.util.List;
-import mx.itson.farmacia.Entidades.DerechoHabiente;
-import mx.itson.farmacia.Entidades.Doctor;
+
+import mx.itson.farmacia.Entidades.*;
 
 /**
  *
@@ -17,5 +17,7 @@ public interface DerechoHabienteInterfaz {
     
       public void agregarDerechoHabiente(DerechoHabiente dh);
       
-      public List<Doctor> mostrarDerechoHabientes();
+      public List<DerechoHabiente> mostrarDerechoHabientes();
+
+      public List<DerechoHabiente> buscarDerechoHabiente(String nombre);
 }

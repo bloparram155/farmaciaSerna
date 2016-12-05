@@ -5,6 +5,7 @@
  */
 package mx.itson.farmacia.Implementacion;
 
+import java.util.ArrayList;
 import mx.itson.farmacia.Entidades.HibernateUtil;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -83,4 +84,24 @@ public class IUsuario implements UsuarioInterfaz {
         return us;
     }
     
+    @Override
+    public List<Usuario> buscarUsuario(String nombre){
+        
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Transaction tx = null;
+        List<Usuario> lista = new ArrayList(    );
+        try{
+           tx = session.beginTransaction();
+           String hql = "FROM Usuario WHERE nombre LIKE :nombre";
+           Query query = session.createQuery(hql);
+           query.setParameter("nombre", nombre);
+           lista = query.list();
+            
+        }catch(Exception ex){
+            JOptionPane.showMessageDialog(null, "Usuario inexistente");
+        }finally{
+            session.close();
+        }
+        return lista;
+    }
 }

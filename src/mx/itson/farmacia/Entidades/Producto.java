@@ -30,6 +30,22 @@ public class Producto {
     private double precioUnitario;
     private Laboratorio laboratorio;
 
+    
+    
+    
+    public Producto(    ){
+        
+    }
+    
+    
+    public Producto(String nombre, String descripcion, int cantidad, double precioUnitario,
+            Laboratorio laboratorio){
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.cantidad = cantidad;
+        this.precioUnitario = precioUnitario;
+        this.laboratorio = laboratorio;
+    }
     /**
      * @return the id
      */

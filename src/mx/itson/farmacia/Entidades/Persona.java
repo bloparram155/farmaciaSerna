@@ -23,13 +23,13 @@ import javax.persistence.Table;
 @Inheritance(strategy= InheritanceType.TABLE_PER_CLASS)
 public class Persona {
     
-    private int id;
-    private String nombre;
-    private String apellido;
-    private String domicilio;
-    private String ciudad;
-    private String telefono;
-    private int edad;
+    protected int id;
+    protected String nombre;
+    protected String apellido;
+    protected String domicilio;
+    protected String ciudad;
+    protected String telefono;
+    protected int edad;
 
     
      /**

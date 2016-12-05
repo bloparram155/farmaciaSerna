@@ -21,4 +21,8 @@ public interface DoctorInterfaz {
     
     public void agregarDerechoHabienteLista(DerechoHabiente dh,Doctor dr);
     
+    public List<Doctor> buscarDoctor(String nombre);
+    
+    public Doctor obtenerDoctor(int id);
+    
 }

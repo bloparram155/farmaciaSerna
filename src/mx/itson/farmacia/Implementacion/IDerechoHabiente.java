@@ -5,11 +5,13 @@
  */
 package mx.itson.farmacia.Implementacion;
 
+import java.util.ArrayList;
 import mx.itson.farmacia.Entidades.HibernateUtil;
 import java.util.List;
 import javax.swing.JOptionPane;
 import mx.itson.farmacia.Entidades.DerechoHabiente;
 import mx.itson.farmacia.Entidades.Doctor;
+import mx.itson.farmacia.Entidades.Laboratorio;
 import mx.itson.farmacia.Interfaz.DerechoHabienteInterfaz;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -38,10 +40,10 @@ public class IDerechoHabiente implements DerechoHabienteInterfaz{
     }
     
     @Override
-    public List<Doctor> mostrarDerechoHabientes(){
+    public List<DerechoHabiente> mostrarDerechoHabientes(){
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction tx = null;
-        List<Doctor> lista= null;
+        List<DerechoHabiente> lista= null;
         try{
             tx = session.beginTransaction();
             String hql = "FROM DerechoHabiente";
@@ -51,6 +53,29 @@ public class IDerechoHabiente implements DerechoHabienteInterfaz{
         }catch(Exception ex){
             JOptionPane.showMessageDialog(null, "Ah ocurrido un problema al"
                     + "mostrar los datos de derechoHabiente.");
+        }finally{
+            session.close();
+        }
+        return lista;
+    }
+
+    
+    
+    @Override
+    public List<DerechoHabiente> buscarDerechoHabiente(String nombre){
+        
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Transaction tx = null;
+        List<DerechoHabiente> lista = new ArrayList();
+        try{
+           tx = session.beginTransaction();
+           String hql = "FROM DerechoHabiente WHERE nombre LIKE :nombre";
+           Query query = session.createQuery(hql);
+           query.setParameter("nombre", nombre);
+           lista = query.list();
+            
+        }catch(Exception ex){
+            JOptionPane.showMessageDialog(null, "Usuario inexistente");
         }finally{
             session.close();
         }

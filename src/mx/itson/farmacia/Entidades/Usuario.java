@@ -37,6 +37,24 @@ public class Usuario extends Persona {
     
  
     /**
+     * Método para crear objeto de clase sin parámetros.
+     */
+    public Usuario(){
+        
+    }
+    
+    public Usuario(String nombre, String apellido, String domicilio, String ciudad, 
+            String telefono, int edad, String usuarioLogin, String contraseña){
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.domicilio = domicilio;
+        this.ciudad = ciudad;
+        this.telefono = telefono;
+        this.edad = edad;
+        this.usuarioLogin = usuarioLogin;
+        this.contraseña = contraseña;
+    }
+    /**
      * @return the usuarioLogin
      */
     @Column(name="usuarioLogin",length=45)
