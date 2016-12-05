@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 import mx.itson.farmacia.Entidades.HibernateUtil;
-import mx.itson.farmacia.Entidades.Laboratorio;
 import mx.itson.farmacia.Entidades.Salida;
 import mx.itson.farmacia.Interfaz.SalidaInterfaz;
 import org.hibernate.Query;
@@ -57,5 +56,23 @@ public class ISalida implements SalidaInterfaz{
         }
         
         return lista;
+    }
+    
+    @Override
+    public Salida obtenerLaboratorio(int id){
+        
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Transaction tx = null;
+        Salida lab=null;
+        try{
+            tx = session.beginTransaction();
+            lab = session.load(Salida.class, id);
+          
+        }catch(Exception ex){
+            JOptionPane.showMessageDialog(null, "Ocurrio un error al obtener Salida");
+        }finally{
+            session.persist(lab);
+        }
+        return lab;
     }
 }

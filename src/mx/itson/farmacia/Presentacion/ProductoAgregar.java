@@ -183,6 +183,10 @@ public class ProductoAgregar extends javax.swing.JInternalFrame {
         pi.agregarProducto(producto);
         li.agregarProductoLista(producto, laboratorio);
         
+        txtNombrePro.setText(null);
+        txtCantidadPro.setText(null);
+        txtPrecioPro.setText(null);
+        txtDescripcionPro.setText(null);
         
         
     }//GEN-LAST:event_btnAgregarProActionPerformed

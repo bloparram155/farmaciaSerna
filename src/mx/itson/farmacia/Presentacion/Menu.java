@@ -5,6 +5,11 @@
  */
 package mx.itson.farmacia.Presentacion;
 
+import javax.swing.JInternalFrame;
+import javax.swing.JOptionPane;
+import mx.itson.farmacia.Implementacion.IValidacion;
+import mx.itson.farmacia.Interfaz.ValidacionInterfaz;
+
 /**
  *
  * @author Laprada
@@ -14,11 +19,18 @@ public class Menu extends javax.swing.JFrame {
     /**
      * Creates new form Menu
      */
-     
+    boolean status = false;
     public Menu() {
-        initComponents();
+        
+       
+             initComponents();
+             jMenuBarFarmacia.setVisible(status);
+             
+        
+       
     }
 
+     
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -28,12 +40,24 @@ public class Menu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        Escritorio = new javax.swing.JDesktopPane();
-        jMenuBarFarmacia = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
+        jMenu2 = new javax.swing.JMenu();
+        Escritorio = new javax.swing.JDesktopPane();
+        LoginFrame = new javax.swing.JInternalFrame();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        txtContraseña = new javax.swing.JTextField();
+        txtUsuario = new javax.swing.JTextField();
+        btnIngresar = new javax.swing.JButton();
+        jMenuBarFarmacia = new javax.swing.JMenuBar();
+        btnPanelPrincipal = new javax.swing.JMenu();
         jMenu3 = new javax.swing.JMenu();
         jMenuItem11 = new javax.swing.JMenuItem();
         jMenuItem12 = new javax.swing.JMenuItem();
+        jMenuUsuario = new javax.swing.JMenu();
+        jMenuItem9 = new javax.swing.JMenuItem();
+        jMenuItem10 = new javax.swing.JMenuItem();
         jMenuDoctor = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
@@ -44,33 +68,105 @@ public class Menu extends javax.swing.JFrame {
         jMenuItem5 = new javax.swing.JMenuItem();
         jMenuItem6 = new javax.swing.JMenuItem();
         jMenuSalida = new javax.swing.JMenu();
-        jMenuItem7 = new javax.swing.JMenuItem();
         jMenuItem8 = new javax.swing.JMenuItem();
-        jMenuUsuario = new javax.swing.JMenu();
-        jMenuItem9 = new javax.swing.JMenuItem();
-        jMenuItem10 = new javax.swing.JMenuItem();
+
+        jMenu1.setText("jMenu1");
+
+        jMenu2.setText("jMenu2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        LoginFrame.setVisible(true);
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel1.setText("Login");
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel2.setText("Contraseña:");
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel3.setText("Usuario:");
+
+        btnIngresar.setText("Ingresar");
+        btnIngresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnIngresarActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout LoginFrameLayout = new javax.swing.GroupLayout(LoginFrame.getContentPane());
+        LoginFrame.getContentPane().setLayout(LoginFrameLayout);
+        LoginFrameLayout.setHorizontalGroup(
+            LoginFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(LoginFrameLayout.createSequentialGroup()
+                .addGroup(LoginFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(LoginFrameLayout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(jLabel1))
+                    .addGroup(LoginFrameLayout.createSequentialGroup()
+                        .addGap(41, 41, 41)
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(LoginFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, 109, Short.MAX_VALUE)
+                            .addComponent(txtContraseña)))
+                    .addGroup(LoginFrameLayout.createSequentialGroup()
+                        .addGap(170, 170, 170)
+                        .addComponent(btnIngresar)))
+                .addContainerGap(151, Short.MAX_VALUE))
+            .addGroup(LoginFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(LoginFrameLayout.createSequentialGroup()
+                    .addGap(41, 41, 41)
+                    .addComponent(jLabel3)
+                    .addContainerGap(238, Short.MAX_VALUE)))
+        );
+        LoginFrameLayout.setVerticalGroup(
+            LoginFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(LoginFrameLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addGap(46, 46, 46)
+                .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(LoginFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(txtContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(42, 42, 42)
+                .addComponent(btnIngresar)
+                .addContainerGap(152, Short.MAX_VALUE))
+            .addGroup(LoginFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(LoginFrameLayout.createSequentialGroup()
+                    .addGap(77, 77, 77)
+                    .addComponent(jLabel3)
+                    .addContainerGap(176, Short.MAX_VALUE)))
+        );
 
         javax.swing.GroupLayout EscritorioLayout = new javax.swing.GroupLayout(Escritorio);
         Escritorio.setLayout(EscritorioLayout);
         EscritorioLayout.setHorizontalGroup(
             EscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1261, Short.MAX_VALUE)
+            .addGroup(EscritorioLayout.createSequentialGroup()
+                .addGap(499, 499, 499)
+                .addComponent(LoginFrame, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(471, Short.MAX_VALUE))
         );
         EscritorioLayout.setVerticalGroup(
             EscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 692, Short.MAX_VALUE)
+            .addGroup(EscritorioLayout.createSequentialGroup()
+                .addGap(190, 190, 190)
+                .addComponent(LoginFrame, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(181, Short.MAX_VALUE))
         );
+        Escritorio.setLayer(LoginFrame, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        jMenu1.setText("Ventana");
-        jMenu1.addActionListener(new java.awt.event.ActionListener() {
+        btnPanelPrincipal.setText("Panel Principal");
+        btnPanelPrincipal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenu1ActionPerformed(evt);
+                btnPanelPrincipalActionPerformed(evt);
             }
         });
 
-        jMenu3.setText("Derecho Habiente");
+        jMenu3.setText("Derecho Habientes");
 
         jMenuItem11.setText("Registrar");
         jMenuItem11.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -98,9 +194,44 @@ public class Menu extends javax.swing.JFrame {
         });
         jMenu3.add(jMenuItem12);
 
-        jMenu1.add(jMenu3);
+        btnPanelPrincipal.add(jMenu3);
 
-        jMenuDoctor.setText("Doctor");
+        jMenuUsuario.setText("Usuarios");
+        jMenuUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenuUsuarioMouseClicked(evt);
+            }
+        });
+        jMenuUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuUsuarioActionPerformed(evt);
+            }
+        });
+
+        jMenuItem9.setText("Registrar");
+        jMenuItem9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenuItem9MouseClicked(evt);
+            }
+        });
+        jMenuItem9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem9ActionPerformed(evt);
+            }
+        });
+        jMenuUsuario.add(jMenuItem9);
+
+        jMenuItem10.setText("Ver usuarios");
+        jMenuItem10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem10ActionPerformed(evt);
+            }
+        });
+        jMenuUsuario.add(jMenuItem10);
+
+        btnPanelPrincipal.add(jMenuUsuario);
+
+        jMenuDoctor.setText("Doctores");
         jMenuDoctor.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jMenuDoctorMouseClicked(evt);
@@ -133,7 +264,7 @@ public class Menu extends javax.swing.JFrame {
         });
         jMenuDoctor.add(jMenuItem2);
 
-        jMenu1.add(jMenuDoctor);
+        btnPanelPrincipal.add(jMenuDoctor);
 
         jMenuLaboratorio.setText("Laboratorio");
         jMenuLaboratorio.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -173,9 +304,9 @@ public class Menu extends javax.swing.JFrame {
         });
         jMenuLaboratorio.add(jMenuItem4);
 
-        jMenu1.add(jMenuLaboratorio);
+        btnPanelPrincipal.add(jMenuLaboratorio);
 
-        jMenuProducto.setText("Producto");
+        jMenuProducto.setText("Productos");
         jMenuProducto.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jMenuProductoMouseClicked(evt);
@@ -208,7 +339,7 @@ public class Menu extends javax.swing.JFrame {
         });
         jMenuProducto.add(jMenuItem6);
 
-        jMenu1.add(jMenuProducto);
+        btnPanelPrincipal.add(jMenuProducto);
 
         jMenuSalida.setText("Salida");
         jMenuSalida.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -221,14 +352,6 @@ public class Menu extends javax.swing.JFrame {
                 jMenuSalidaActionPerformed(evt);
             }
         });
-
-        jMenuItem7.setText("Agregar Salidas");
-        jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem7ActionPerformed(evt);
-            }
-        });
-        jMenuSalida.add(jMenuItem7);
 
         jMenuItem8.setText("Ver Salidas");
         jMenuItem8.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -243,44 +366,9 @@ public class Menu extends javax.swing.JFrame {
         });
         jMenuSalida.add(jMenuItem8);
 
-        jMenu1.add(jMenuSalida);
+        btnPanelPrincipal.add(jMenuSalida);
 
-        jMenuUsuario.setText("Usuario");
-        jMenuUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenuUsuarioMouseClicked(evt);
-            }
-        });
-        jMenuUsuario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuUsuarioActionPerformed(evt);
-            }
-        });
-
-        jMenuItem9.setText("Registrar");
-        jMenuItem9.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenuItem9MouseClicked(evt);
-            }
-        });
-        jMenuItem9.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem9ActionPerformed(evt);
-            }
-        });
-        jMenuUsuario.add(jMenuItem9);
-
-        jMenuItem10.setText("Ver usuarios");
-        jMenuItem10.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem10ActionPerformed(evt);
-            }
-        });
-        jMenuUsuario.add(jMenuItem10);
-
-        jMenu1.add(jMenuUsuario);
-
-        jMenuBarFarmacia.add(jMenu1);
+        jMenuBarFarmacia.add(btnPanelPrincipal);
 
         setJMenuBar(jMenuBarFarmacia);
 
@@ -292,18 +380,18 @@ public class Menu extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Escritorio)
+            .addComponent(Escritorio, javax.swing.GroupLayout.Alignment.TRAILING)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu1ActionPerformed
+    private void btnPanelPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPanelPrincipalActionPerformed
        
         
             
         
-    }//GEN-LAST:event_jMenu1ActionPerformed
+    }//GEN-LAST:event_btnPanelPrincipalActionPerformed
 
     private void jMenuDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuDoctorActionPerformed
         // TODO add your handling code here:
@@ -427,13 +515,6 @@ public class Menu extends javax.swing.JFrame {
         VentanaVerSalidas.show();
     }//GEN-LAST:event_jMenuItem8ActionPerformed
 
-    private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
-        // TODO add your handling code here:
-        SalidaAgregar VentanaSalida = new SalidaAgregar();
-        Escritorio.add(VentanaSalida);
-        VentanaSalida.show();
-    }//GEN-LAST:event_jMenuItem7ActionPerformed
-
     private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
         // TODO add your handling code here:
         UsuarioAgregar VentanaDarDeAltaUsuario = new UsuarioAgregar();
@@ -497,6 +578,18 @@ public class Menu extends javax.swing.JFrame {
         VentanaVerSalidas.show();
     }//GEN-LAST:event_jMenuItem8MouseClicked
 
+    private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
+        
+        ValidacionInterfaz via = new IValidacion();
+        String usuario = txtUsuario.getText().trim();
+        String contraseña = txtContraseña.getText().trim();
+        if(via.validarCredenciales(usuario, contraseña)== true){
+            jMenuBarFarmacia.setVisible(true);
+            LoginFrame.dispose();
+        }
+        
+    }//GEN-LAST:event_btnIngresarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -529,12 +622,21 @@ public class Menu extends javax.swing.JFrame {
             public void run() {
                 new Menu().setVisible(true);
             }
+            
+            
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane Escritorio;
+    private javax.swing.JInternalFrame LoginFrame;
+    private javax.swing.JButton btnIngresar;
+    private javax.swing.JMenu btnPanelPrincipal;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBarFarmacia;
     private javax.swing.JMenu jMenuDoctor;
@@ -547,12 +649,13 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
-    private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JMenu jMenuLaboratorio;
     private javax.swing.JMenu jMenuProducto;
     private javax.swing.JMenu jMenuSalida;
     private javax.swing.JMenu jMenuUsuario;
+    private javax.swing.JTextField txtContraseña;
+    private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
 }

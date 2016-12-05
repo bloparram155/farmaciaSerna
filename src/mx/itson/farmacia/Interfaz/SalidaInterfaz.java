@@ -19,4 +19,6 @@ public interface SalidaInterfaz {
     
     public List<Salida> mostrarSalidas();
     
+    public Salida obtenerLaboratorio(int id);
+    
 }

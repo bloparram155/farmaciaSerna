@@ -7,6 +7,8 @@ package mx.itson.farmacia.Presentacion;
 
 import javax.swing.table.DefaultTableModel;
 import mx.itson.farmacia.Entidades.DerechoHabiente;
+import mx.itson.farmacia.Entidades.Laboratorio;
+import mx.itson.farmacia.Entidades.Producto;
 import mx.itson.farmacia.Entidades.Salida;
 import mx.itson.farmacia.Implementacion.ISalida;
 import mx.itson.farmacia.Interfaz.SalidaInterfaz;
@@ -60,6 +62,11 @@ public class VerSalidas extends javax.swing.JInternalFrame {
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
+            }
+        });
+        tblMostrarSalidas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblMostrarSalidasMouseClicked(evt);
             }
         });
         tblMostrarSalidas.addAncestorListener(new javax.swing.event.AncestorListener() {
@@ -155,7 +162,7 @@ public class VerSalidas extends javax.swing.JInternalFrame {
             
             Object[] fila = new Object[5];
             fila[0] = sal.getId();
-            fila[1] = sal.getDoctor().getNombre();
+            fila[1] = sal.getDoctor().getNombre()+" "+ sal.getDoctor().getApellido();
             fila[2] = sal.getDerechoHabiente().getNombre();
             fila[3] = sal.getUsuario().getNombre();
     
@@ -163,9 +170,76 @@ public class VerSalidas extends javax.swing.JInternalFrame {
          
         }
     }
+    
+    /**
+     * Método para rellenar la tabla de productos de salida individual.
+     * @param s 
+     */
+     private void llenarTablaProductoSalida(Salida s){
+         
+         DefaultTableModel dtm =  new DefaultTableModel();
+         tblProductosSalida.setModel(dtm);
+        
+        dtm.addColumn("Id");
+        dtm.addColumn("Nombre");
+        dtm.addColumn("Descripcion");
+        dtm.addColumn("Cantidad");
+        dtm.addColumn("Precio Unitario");
+        dtm.addColumn("Laboratorio");
+        
+       
+        
+        for(Producto sal: s.getLista()){
+            
+            Object[] fila = new Object[7];
+            fila[0] = sal.getId();
+            fila[1] = sal.getNombre();
+            fila[2] = sal.getDescripcion();
+            fila[3] = sal.getCantidad();
+            fila[4] = sal.getPrecioUnitario();
+            fila[5] = sal.getLaboratorio();
+    
+            dtm.addRow(fila);
+         
+        }
+    }
+    private DefaultTableModel llenarTablaSalida(){
+         
+         DefaultTableModel dtm =  new DefaultTableModel();
+         tblMostrarSalidas.setModel(dtm);
+        
+        dtm.addColumn("Id");
+        dtm.addColumn("Doctor");
+        dtm.addColumn("Derecho Habiente");
+        dtm.addColumn("Usuario");
+        
+       
+        
+        for(Salida sal: sii.mostrarSalidas()){
+            
+            Object[] fila = new Object[5];
+            fila[0] = sal.getId();
+            fila[1] = sal.getDoctor().getNombre() + " " +sal.getDoctor().getApellido();
+            fila[2] = sal.getDerechoHabiente().getNombre();
+            fila[3] = sal.getUsuario().getNombre();
+    
+            dtm.addRow(fila);
+         
+        }
+        return dtm;
+    }
+    
+    
     private void tblMostrarSalidasAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_tblMostrarSalidasAncestorAdded
        llenarTabla();
     }//GEN-LAST:event_tblMostrarSalidasAncestorAdded
+
+    private void tblMostrarSalidasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblMostrarSalidasMouseClicked
+        int index = tblMostrarSalidas.getSelectedRow();
+        int id = Integer.parseInt(llenarTablaSalida().getValueAt(index, 0).toString());
+        llenarTablaProductoSalida(sii.obtenerLaboratorio(id));
+        
+    }//GEN-LAST:event_tblMostrarSalidasMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
