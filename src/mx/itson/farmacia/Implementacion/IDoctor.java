@@ -35,6 +35,7 @@ public class IDoctor implements DoctorInterfaz {
             tx = session.beginTransaction();
             session.save(p);
             tx.commit();
+            JOptionPane.showMessageDialog(null, "Se agrego con exito al doctor.");
         }catch(Exception ex){
             JOptionPane.showMessageDialog(null,"Ah ocurrido un problema al agregar"
                     + "doctor.");

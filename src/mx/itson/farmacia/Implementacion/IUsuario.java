@@ -32,6 +32,7 @@ public class IUsuario implements UsuarioInterfaz {
             tx = session.beginTransaction();
             session.save(p);
             tx.commit();
+            JOptionPane.showMessageDialog(null, "Se agrego con exito al usuario.");
         }catch(Exception ex){
             JOptionPane.showMessageDialog(null,"Ah ocurrido un problema al agregar"
                     + "un usuario.");

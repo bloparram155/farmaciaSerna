@@ -29,6 +29,7 @@ public class ISalida implements SalidaInterfaz{
             tx = session.beginTransaction();
             session.save(s);
             tx.commit();
+            JOptionPane.showMessageDialog(null, "Se agrego con exito la salida.");
         }catch(Exception ex){
             JOptionPane.showMessageDialog(null,"Ah ocurrido un problema al agregar"
                     + "salida.");

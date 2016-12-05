@@ -38,6 +38,7 @@ public class ILaboratorio implements LaboratorioInterfaz{
             tx = session.beginTransaction();
             session.save(lab);
             tx.commit();
+            JOptionPane.showMessageDialog(null, "Se agrego con exito el laboratorio.");
         }catch(Exception ex){
             JOptionPane.showMessageDialog(null, "Ocurrio un problema al agregar laboratorio.");
         }finally{

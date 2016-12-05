@@ -32,6 +32,7 @@ public class IProducto implements ProductoInterfaz{
             tx = session.beginTransaction();
             session.save(p);
             tx.commit();
+            JOptionPane.showMessageDialog(null, "Se agrego con exito el producto.");
         }catch(Exception ex){
             JOptionPane.showMessageDialog(null,"Ah ocurrido un problema al agregar"
                     + "producto.");

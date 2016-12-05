@@ -29,6 +29,7 @@ public class IDerechoHabiente implements DerechoHabienteInterfaz{
             tx = session.beginTransaction();
             session.save(dh);
             tx.commit();
+            JOptionPane.showMessageDialog(null, "Se agrego con exito al derecho habiente.");
         }catch(Exception ex){
             JOptionPane.showMessageDialog(null,"Ah ocurrido un problema al agregar"
                     + "un derechoHabiente.");
