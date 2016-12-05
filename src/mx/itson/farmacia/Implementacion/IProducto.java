@@ -81,4 +81,40 @@ public class IProducto implements ProductoInterfaz{
         return lista;
     }
     
+    @Override
+    public Producto obtenerProducto(int id){
+        
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Transaction tx = null;
+        Producto dr=null;
+        try{
+            tx = session.beginTransaction();
+            dr = session.get(Producto.class, id);
+          
+        }catch(Exception ex){
+            JOptionPane.showMessageDialog(null, "Ocurrio un error al obtener producto.");
+        }finally{
+            session.persist(dr);
+        }
+        return dr;
+    }
+    
+    @Override
+    public void actualizarProducto(Producto p){
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Transaction tx = null;
+        try{
+            tx = session.beginTransaction();
+            String hql = "UPDATE Producto set cantidad = :cantidad WHERE idProducto = :idProducto";
+            Query query = session.createQuery(hql);
+            query.setParameter("cantidad", p.getCantidad());
+            query.setParameter("idProducto", p.getId());
+            
+        }catch(Exception ex){
+            JOptionPane.showMessageDialog(null, "Ocurrio un problema al actualizar registro de producto");
+        }finally{
+            session.close();
+        }
+    }
+    
 }

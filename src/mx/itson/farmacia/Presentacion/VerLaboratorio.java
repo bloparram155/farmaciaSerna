@@ -96,7 +96,7 @@ public class VerLaboratorio extends javax.swing.JInternalFrame {
         jScrollPane1.setViewportView(tblMostrarLaboratorios);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        jLabel1.setText("Venta de Productos");
+        jLabel1.setText("Productos Registrados por Laboratorio");
 
         txtBusquedaLab.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

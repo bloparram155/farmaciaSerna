@@ -5,10 +5,18 @@
  */
 package mx.itson.farmacia.Interfaz;
 
+import java.util.List;
+import mx.itson.farmacia.Entidades.Salida;
+
 /**
  *
  * @author blabla
  */
 public interface SalidaInterfaz {
+    
+    
+    public void agregarSalida(Salida s);
+    
+    public List<Salida> mostrarSalidas();
     
 }

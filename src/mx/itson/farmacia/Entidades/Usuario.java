@@ -85,7 +85,10 @@ public class Usuario extends Persona {
     }
 
     
-    
+    @Override
+    public String toString(){
+        return nombre;
+    }
  
     
 }

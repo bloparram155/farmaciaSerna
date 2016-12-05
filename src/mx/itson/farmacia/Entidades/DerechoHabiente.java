@@ -143,7 +143,10 @@ public class DerechoHabiente extends Persona {
         this.fechaIngreso = fechaIngreso;
     }
 
-    
+    @Override
+    public String toString(){
+        return nombre;
+    }
 
     
     

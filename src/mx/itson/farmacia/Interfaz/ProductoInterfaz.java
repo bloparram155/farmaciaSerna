@@ -19,4 +19,8 @@ public interface ProductoInterfaz {
     public List<Producto> obtenerProductos();
     
     public List<Producto> buscarProducto(String nombre);
+    
+    public Producto obtenerProducto(int id);
+     
+    public void actualizarProducto(Producto p);
 }

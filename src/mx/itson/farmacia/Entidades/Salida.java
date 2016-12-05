@@ -34,7 +34,23 @@ public class Salida {
     private Doctor doctor;
     private DerechoHabiente derechoHabiente;
     private Usuario usuario;
+    private double total;
 
+    /**
+     * Método para crear objeto de clase sin parámetros.
+     */
+    public Salida(){
+        
+    }
+    
+    public Salida(List<Producto> lista, Doctor doctor, DerechoHabiente derechoHabiente,
+            Usuario usuario, double total){
+        this.lista = lista;
+        this.doctor = doctor;
+        this.derechoHabiente = derechoHabiente;
+        this.usuario= usuario;
+        this.total = total;
+    }
     /**
      * @return the id
      */
@@ -116,6 +132,22 @@ public class Salida {
         this.usuario = usuario;
     }
 
+    /**
+     * @return the total
+     */
+    @Column(name="total",length= 10)
+    public double getTotal() {
+        return total;
+    }
+
+    /**
+     * @param total the total to set
+     */
+    public void setTotal(double total) {
+        this.total = total;
+    }
+
+    
     
     
     

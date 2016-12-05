@@ -10,8 +10,6 @@ import mx.itson.farmacia.Entidades.HibernateUtil;
 import java.util.List;
 import javax.swing.JOptionPane;
 import mx.itson.farmacia.Entidades.DerechoHabiente;
-import mx.itson.farmacia.Entidades.Doctor;
-import mx.itson.farmacia.Entidades.Laboratorio;
 import mx.itson.farmacia.Interfaz.DerechoHabienteInterfaz;
 import org.hibernate.Query;
 import org.hibernate.Session;

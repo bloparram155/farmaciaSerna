@@ -5,19 +5,24 @@
  */
 package mx.itson.farmacia.Presentacion;
 
+import mx.itson.farmacia.Entidades.DerechoHabiente;
+import mx.itson.farmacia.Entidades.Doctor;
+import mx.itson.farmacia.Entidades.Usuario;
+
 /**
  *
  * @author Laprada
  */
-public class Salida extends javax.swing.JInternalFrame {
+public class SalidaAgregar extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form Salida
      */
-    public Salida() {
+    public SalidaAgregar() {
         initComponents();
     }
 
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -30,9 +35,9 @@ public class Salida extends javax.swing.JInternalFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        cbxDoctorSa = new javax.swing.JComboBox<String>();
-        cbxDerechoHabienteSa = new javax.swing.JComboBox<String>();
-        cbxUsuarioSa = new javax.swing.JComboBox<String>();
+        cbxDoctorSa = new javax.swing.JComboBox<Doctor>();
+        cbxDerechoHabienteSa = new javax.swing.JComboBox<DerechoHabiente>();
+        cbxUsuarioSa = new javax.swing.JComboBox<Usuario>();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblMostrarProductosSa = new javax.swing.JTable();
         jLabel5 = new javax.swing.JLabel();
@@ -50,12 +55,6 @@ public class Salida extends javax.swing.JInternalFrame {
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         jLabel4.setText("Usuario:");
-
-        cbxDoctorSa.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        cbxDerechoHabienteSa.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        cbxUsuarioSa.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         tblMostrarProductosSa.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -99,18 +98,18 @@ public class Salida extends javax.swing.JInternalFrame {
                                     .addComponent(jLabel5)
                                     .addComponent(jLabel2))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(cbxDoctorSa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(cbxUsuarioSa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(111, 111, 111)
-                                        .addComponent(jButton1))
-                                    .addComponent(cbxDerechoHabienteSa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(cbxDerechoHabienteSa, 0, 100, Short.MAX_VALUE)
+                                    .addComponent(cbxDoctorSa, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(cbxUsuarioSa, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                             .addComponent(jLabel6)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(35, 35, 35)
+                        .addGap(483, 483, 483)
+                        .addComponent(jButton1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 991, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(169, Short.MAX_VALUE))
+                .addContainerGap(194, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -127,18 +126,19 @@ public class Salida extends javax.swing.JInternalFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3)
                             .addComponent(cbxDerechoHabienteSa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton1))
+                        .addGap(88, 88, 88))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4)
-                            .addComponent(cbxUsuarioSa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(47, 47, 47)
+                            .addComponent(cbxUsuarioSa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(47, 47, 47)))
                 .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(57, Short.MAX_VALUE))
+                .addGap(23, 23, 23)
+                .addComponent(jButton1)
+                .addContainerGap(16, Short.MAX_VALUE))
         );
 
         pack();
@@ -146,9 +146,9 @@ public class Salida extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> cbxDerechoHabienteSa;
-    private javax.swing.JComboBox<String> cbxDoctorSa;
-    private javax.swing.JComboBox<String> cbxUsuarioSa;
+    private javax.swing.JComboBox<DerechoHabiente> cbxDerechoHabienteSa;
+    private javax.swing.JComboBox<Doctor> cbxDoctorSa;
+    private javax.swing.JComboBox<Usuario> cbxUsuarioSa;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

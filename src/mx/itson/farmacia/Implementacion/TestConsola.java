@@ -11,6 +11,7 @@ import mx.itson.farmacia.Entidades.Doctor;
 import mx.itson.farmacia.Entidades.Laboratorio;
 import mx.itson.farmacia.Entidades.Persona;
 import mx.itson.farmacia.Entidades.Producto;
+import mx.itson.farmacia.Entidades.Salida;
 import mx.itson.farmacia.Entidades.Usuario;
 import mx.itson.farmacia.Interfaz.DerechoHabienteInterfaz;
 import mx.itson.farmacia.Interfaz.DoctorInterfaz;
@@ -33,7 +34,7 @@ public class TestConsola {
         Session sessionUser = HibernateUtil.getSessionFactory().openSession();
         Transaction tx = null;
         tx = sessionUser.beginTransaction();
-        Laboratorio lab = sessionUser.load(Laboratorio.class, 13);
+        Salida lab = sessionUser.load(Salida.class, 18);
         for(Producto pro : lab.getLista()){
             System.out.println(pro.getNombre());
         }
